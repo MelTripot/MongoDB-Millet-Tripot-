@@ -8,3 +8,5 @@ const ProjetSchema=new schema({
     palier:{ type: Number,required: 'Veuillez donner pallier votre projet'},
     montantActuel:{type:Number}
 })
+
+module.exports = mongoose.model('projet', ProjetSchema)
