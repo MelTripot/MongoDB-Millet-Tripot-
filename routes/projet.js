@@ -1,7 +1,7 @@
 const express=require('express')
 const router=express.Router()
 
-const Projet=require('../models/Projet')
+const Projet=require('../models/projetModel')
 
 
 

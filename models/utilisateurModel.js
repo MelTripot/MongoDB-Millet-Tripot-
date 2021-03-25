@@ -1,18 +1,18 @@
-const mongoose  = require('mongoose')
-const schema    = mongoose.Schema 
+const mongoose = require('mongoose')
+const schema = mongoose.Schema
 
 const UtilisateurShema = new schema({
     nom: { type: String },
     prenom: { type: String },
     email: { type: String },
     motDePasse: { type: String },
-    projetsCreesRef: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'projet'
-    }],
     participationsRef: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'projet'
+        montant: Number,
+        projet:
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'projet'
+        }
     }],
     projetsSuivisRef: [{
         type: mongoose.Schema.Types.ObjectId,
