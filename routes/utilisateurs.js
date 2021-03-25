@@ -4,13 +4,14 @@ const router = express.Router()
 const Utilisateur = require('../models/Utilisateur')
 
 router.post("/", (req, res) => {
+    console.log(req.body)
     const { nom, prenom, email, motDePasse, projetsCreesRef, participationsRef, projetsSuivisRef } = req.body
 
-    new Utilisateur({
+    const newUser = new Utilisateur({
         nom, prenom, email, motDePasse, projetsCreesRef, participationsRef, projetsSuivisRef
     })
-        .save()
-        .then(user => res.Send(user))
+    newUser.save()
+        .then(user => res.send(user))
         .catch(err => console.error(err))
 })
 
