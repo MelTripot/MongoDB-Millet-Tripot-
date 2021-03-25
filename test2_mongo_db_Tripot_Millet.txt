@@ -1,0 +1,35 @@
+Melanie TRIPOT 
+Morgan MILLET
+
+Lien vers notre repo git : https://github.com/MelTripot/MongoDB-Millet-Tripot-
+
+choix pour les model : 
+nous choisi de mettre dans le schema utilisateur (voir utilisateurModel.js)
+- nom
+-prenom 
+- email 
+- mots de passe
+- les projet aux quels il a pu participer (participationsRef)
+- les projet suivis (projetsSuivisRef)
+
+ainsi il sera plus facile pour l'utilisateur de trouver les projet qu'il a aimer et au quel il a contribuer 
+nous avons cependant décider nen ne pas en faire de meme pour les projet creer et de faire en sorte que le projet soit parent de ses createur 
+
+ce qui nous donne la composition suivant pour les projet :
+
+- nom (obligatoire) 
+- un tableau des catégories 
+- un palier (obligatoire) 
+- le montant actuel de la cagnote 
+- une date de fin 
+- un booleen pour savoir si le projet est mis en avant ou non 
+- un tableau des createur comme précedement citer 
+
+
+Creation des indexes :  
+les projets mis en avant : 
+ynov.projets.createIndex( { isMisEnAvant: 1 } )
+
+requete search sur le nom des projet : 
+ynov.projets.find( { $text: { $search: "Livre pour apprendre mongo" } } )
+

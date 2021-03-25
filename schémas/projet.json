@@ -9,7 +9,7 @@
     "montantActuel":12,
     "datedefin":"2020-12-26",
     "isMisEnAvant": false,
-    "participant":[
+    "createurs":[
         "mec1",
         "mec2"
     ]
