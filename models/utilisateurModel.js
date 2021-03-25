@@ -7,11 +7,10 @@ const UtilisateurShema = new schema({
     email: { type: String },
     motDePasse: { type: String },
     participationsRef: [{
-        montant: Number,
-        utilisateur:
-        {
+        montant: { type: Number },
+        projet: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'utilisateur'
+            ref: 'projet'
         }
     }],
     projetsSuivisRef: [{
@@ -20,4 +19,4 @@ const UtilisateurShema = new schema({
     }],
 })
 
-module.exports = mongoose.model('utilisateur', UtilisateurShema)
+module.exports = Utilisateur = mongoose.model('utilisateur', UtilisateurShema)

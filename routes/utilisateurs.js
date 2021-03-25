@@ -1,3 +1,4 @@
+const { ObjectId } = require('bson')
 const express = require('express')
 const router = express.Router()
 
@@ -43,6 +44,38 @@ router.delete("/:_id", (req, res) => {
     Utilisateur.findOneAndDelete({ _id: _id })
         .then(() => res.send("success"))
         .catch(err => console.log(err))
+})
+
+router.get('/', (req, res) => {
+    Utilisateur.find({}).populate({ path: "participationsRef.projet" })
+        .then(user => res.send(user))
+        .catch(err => console.log(err))
+})
+
+// Réupéré la somme des participations pour un projet
+router.get("/get-montant/:_id", (req, res) => {
+    const projectId = req.params._id
+
+    Utilisateur.aggregate([
+        {
+            $unwind: {
+                path: "$participationsRef"
+            }
+        },
+        {
+            $group: {
+                _id: "$participationsRef.projet",
+                montantActuel: { $sum: "$participationsRef.montant" }
+            }
+        },
+        {
+            $match: {
+                "_id": ObjectId(projectId)
+            }
+        }
+
+    ]).then(montant => res.send(montant))
+        .catch(error => console.error(error))
 })
 
 module.exports = router

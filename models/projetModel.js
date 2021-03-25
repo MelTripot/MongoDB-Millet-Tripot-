@@ -12,4 +12,4 @@ const ProjetSchema = new schema({
     createurs: [mongoose.Schema.Types.ObjectId],
 })
 
-module.exports = mongoose.model('projet', ProjetSchema)
+module.exports = Project = mongoose.model('projet', ProjetSchema)

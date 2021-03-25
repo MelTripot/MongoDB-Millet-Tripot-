@@ -12,7 +12,7 @@ router.get("/",(req,res)=>{
 
     const limit = req.query.limit;
     const {nom } = req.query;
-    Projet.find({nom})
+    Projet.find({})
     .then(projets=>res.send(projets))
     .catch(err=>console.log(err))
 })
@@ -21,9 +21,9 @@ router.get("/",(req,res)=>{
 // localhost:5000/projets
 // [POST] localhost:5000/projets
 router.post("/",(req,res)=>{
-    const {nom,categories,palier,montantActuel,datedefin,isMisEnAvant,participant}=req.body
+    const {nom,categories,palier,montantActuel,datedefin,isMisEnAvant,createurs}=req.body
     const newProjet=new Projet({
-        nom,categories,palier,montantActuel,datedefin,isMisEnAvant,participant
+        nom,categories,palier,montantActuel,datedefin,isMisEnAvant,createurs
     })
     newProjet.save()
     .then(projets=>res.send(projets))
