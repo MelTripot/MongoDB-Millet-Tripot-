@@ -21,9 +21,9 @@ router.get("/",(req,res)=>{
 // localhost:5000/projets
 // [POST] localhost:5000/projets
 router.post("/",(req,res)=>{
-    const { nom,categories,palier,montantActuel }=req.body
+    const {nom,categories,palier,montantActuel,datedefin,isMisEnAvant,participant}=req.body
     const newProjet=new Projet({
-        nom,categories,palier,montantActuel
+        nom,categories,palier,montantActuel,datedefin,isMisEnAvant,participant
     })
     newProjet.save()
     .then(projets=>res.send(projets))
@@ -48,8 +48,8 @@ router.get("/:_id",(req,res)=>{
 router.put("/:_id",(req,res)=>{
     const {_id}=req.params
 
-    const {nom,categories,palier,montantActuel}=req.body
-    Projet.findOneAndUpdate({_id:_id},{nom,categories,palier,montantActuel})
+    const {nom,categories,palier,montantActuel,datedefin,isMisEnAvant,participantl}=req.body
+    Projet.findOneAndUpdate({_id:_id},{nom,categories,palier,montantActuel,datedefin,isMisEnAvant,participant})
     .then(projets=>res.send("projet Updated"))
     .catch(err=>console.log(err))
 })
