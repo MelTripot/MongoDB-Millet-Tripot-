@@ -24,8 +24,8 @@ router.get("/:_id", (req, res) => {
 
 router.put("/:_id", (req, res) => {
     const { _id } = req.params
+    const { nom, prenom, email, motDePasse, projetsCreesRef, participationsRef, projetsSuivisRef } = req.body
 
-    const { nom, prenom, email, motDePasse, projetsCreesRef, participationsRef, projetsSuivisRef }
     Utilisateur.findOneAndUpdate(
         { _id: _id },
         {
