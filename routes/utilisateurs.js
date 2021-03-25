@@ -24,6 +24,7 @@ router.get("/:_id", (req, res) => {
         .catch(err => console.log(err))
 })
 
+// Modifie un utilisateur ainsi que la participation ou pour suivre un projet
 router.put("/:_id", (req, res) => {
     const { _id } = req.params
     const { nom, prenom, email, motDePasse, projetsCreesRef, participationsRef, projetsSuivisRef } = req.body

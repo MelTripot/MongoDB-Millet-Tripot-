@@ -1,0 +1,3 @@
+{"_id":{"$oid":"605cbc1a49b14841c4771647"},"categories":["voyage","transport"],"createurs":[],"nom":"projet","palier":10000,"montantActuel":0,"datedefin":{"$date":"2021-05-12T00:00:00Z"},"isMisEnAvant":true,"__v":0}
+{"_id":{"$oid":"605cbc7d49b14841c477164a"},"categories":["voyage","transport"],"createurs":[],"nom":"projet","palier":10000,"montantActuel":0,"datedefin":{"$date":"2021-05-12T00:00:00Z"},"isMisEnAvant":true,"__v":0}
+{"_id":{"$oid":"605cd593979e7a32acb2b3af"},"categories":["voyage","transport"],"createurs":[],"nom":"test","palier":10000,"montantActuel":0,"datedefin":{"$date":"2021-05-12T00:00:00Z"},"isMisEnAvant":true,"__v":0}

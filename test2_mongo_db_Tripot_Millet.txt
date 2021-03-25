@@ -27,9 +27,22 @@ ce qui nous donne la composition suivant pour les projet :
 
 
 Creation des indexes :  
+Par noms :
+db.projects.createIndex({ nom: "text" })
+
 les projets mis en avant : 
 ynov.projets.createIndex( { isMisEnAvant: 1 } )
 
-requete search sur le nom des projet : 
+
+requete search sur le nom des projets : 
+http://localhost:5000/projets?search=test
+
 ynov.projets.find( { $text: { $search: "Livre pour apprendre mongo" } } )
 
+
+Récupérer la somme total d'un financement pour un projet
+GET - http://localhost:5000/utilisateurs/get-montant/<ID_DU_PROJET>
+
+
+Pour qu'un utilisateur participe ou suive un projet :
+PUT - http://localhost:5000/utilisateurs/
