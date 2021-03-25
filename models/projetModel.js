@@ -9,7 +9,7 @@ const ProjetSchema = new schema({
     montantActuel: { type: Number },
     datedefin: { type: Date },
     isMisEnAvant: { type: Boolean },
-    createurs: [mongoose.Schema.Types.ObjectId]
+    createurs: [mongoose.Schema.Types.ObjectId],
 })
 
 module.exports = mongoose.model('projet', ProjetSchema)

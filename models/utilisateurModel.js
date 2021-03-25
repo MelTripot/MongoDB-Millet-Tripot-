@@ -8,10 +8,10 @@ const UtilisateurShema = new schema({
     motDePasse: { type: String },
     participationsRef: [{
         montant: Number,
-        projet:
+        utilisateur:
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'projet'
+            ref: 'utilisateur'
         }
     }],
     projetsSuivisRef: [{
