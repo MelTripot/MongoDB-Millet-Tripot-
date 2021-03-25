@@ -21,9 +21,9 @@ router.get("/",(req,res)=>{
 // localhost:5000/projets
 // [POST] localhost:5000/projets
 router.post("/",(req,res)=>{
-    const { nom,categories,palier }=req.body
+    const { nom,categories,palier,montantActuel }=req.body
     const newProjet=new Projet({
-        nom,categories,palier
+        nom,categories,palier,montantActuel
     })
     newProjet.save()
     .then(projets=>res.send(projets))
@@ -32,8 +32,8 @@ router.post("/",(req,res)=>{
 
 
 // sur GET avec id : il s'agit de la récupération d'un et d'un seul document (s'il existe)
-// localhost:5000/projets/6055c2a61bcfb139a404b3a0
-// [GET] localhost:5000/projets/6055c2a61bcfb139a404b3a0
+// localhost:5000/projets/idDuProjet
+// [GET] localhost:5000/projets/idDuProjet
 router.get("/:_id",(req,res)=>{
     const {_id}=req.params
     console.log(req.params);
@@ -44,19 +44,19 @@ router.get("/:_id",(req,res)=>{
 
 
 // sur PUT avec id : l'édition d'un document
-// localhost:5000/projets/6055c2a61bcfb139a404b3a0
+// localhost:5000/projets/idDuProjet
 router.put("/:_id",(req,res)=>{
     const {_id}=req.params
 
-    const {name,email,phone}=req.body
-    Projet.findOneAndUpdate({_id:_id},{name,email,phone})
+    const {nom,categories,palier,montantActuel}=req.body
+    Projet.findOneAndUpdate({_id:_id},{nom,categories,palier,montantActuel})
     .then(projets=>res.send("projet Updated"))
     .catch(err=>console.log(err))
 })
 
 
 // sur DELETE avec id : la suppression d'un document
-//localhost:5000/projets/6055c2a61bcfb139a404b3a0
+//localhost:5000/projets/idDuProjet
 router.delete("/:_id",(req,res)=>{
     const {_id}=req.params
     Projet.findOneAndDelete({_id:_id})

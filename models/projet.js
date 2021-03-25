@@ -3,7 +3,8 @@ const schema   = mongoose.Schema
 
 // https://mongoosejs.com/docs/schematypes.html
 const ProjetSchema=new schema({
-    nom : { type:String, lowercase: true, required: 'Veuillez donnez un nom a votre projet'},    
+    nom : { type:String, lowercase: true, required: 'Veuillez donner un nom a votre projet'},    
     categories:[String],
-    palier:{ type: Number, default: false }
+    palier:{ type: Number,required: 'Veuillez donner pallier votre projet'},
+    montantActuel:{type:Number}
 })
