@@ -12,7 +12,7 @@ app.use(cors())
 connectDB()
 
 //routes
-// localhost:5000/contacts/
+// localhost:5000/projets/
 app.use("/projets",require('./routes/projet'))
 app.use("/utilisateurs",require('./routes/utilisateurs'))
 
